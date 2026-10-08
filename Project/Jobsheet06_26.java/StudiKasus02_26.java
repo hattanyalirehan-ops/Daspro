@@ -36,6 +36,29 @@ public class StudiKasus02_26 {
                 System.out.println("Alasan : Bukan Juara 1, 2, atau 3 (Juara Harapan/peserta)");
             }
 
-        } 
+        } else if (jenis.equals("pkm")) {
+            System.out.print("Status pendanaan PKM (1 = lolos, 0 = tidak lolos): ");
+            int statusPkm = input.nextInt();
+
+            if (statusPkm == 1) {
+                if (jumlahDok == 4) {
+                    System.out.println("Status : DANA DIBERIKAN");
+                    System.out.println("Alasan : PKM lolos pendanaan dan dokumen lengkap (4/4)");
+                } else {
+                    System.out.println("Status : DANA TIDAK DIBERIKAN");
+                    System.out.println("Alasan : Dokumen tidak lengkap");
+                    System.out.println("Dokumen yang masih kurang: " + (4 - jumlahDok));
+                }
+            } else {
+                System.out.println("Status : DANA TIDAK DIBERIKAN");
+                System.out.println("Alasan : PKM tidak lolos pendanaan");
+            }
+
+        } else {
+            System.out.println("Status : DANA TIDAK DIBERIKAN");
+            System.out.println("Alasan : Kegiatan kategori Lainnya tidak memperoleh dana penghargaan");
+        }
+
+        input.close();
     }
 }
